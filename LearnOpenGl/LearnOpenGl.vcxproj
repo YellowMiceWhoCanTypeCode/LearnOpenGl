@@ -137,15 +137,19 @@
     <ClCompile Include="glad.c" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <Content Include="Images\defense_tower.png" />
     <Content Include="Images\defense_towers.png" />
     <Content Include="Images\sprite.png" />
-    <Content Include="shader.fs.txt" />
-    <Content Include="shader.vs.txt" />
+    <Content Include="Shaders\light_shader.fs.txt" />
+    <Content Include="Shaders\light_shader.vs.txt" />
+    <Content Include="Shaders\shader.fs.txt" />
+    <Content Include="Shaders\shader.vs.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
