@@ -72,8 +72,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <SourcePath>$(SourcePath)</SourcePath>
-    <IncludePath>D:\C++workbeach\ThirdPartyLib\glfw-3.4.bin.WIN64\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\C++workbeach\ThirdPartyLib\glfw-3.4.bin.WIN64\lib-vc2022;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\C++workbeach\ThirdPartyLib\glad\include;D:\C++workbeach\ThirdPartyLib\glfw-3.4.bin.WIN64\include;</IncludePath>
+    <LibraryPath>D:\C++workbeach\ThirdPartyLib\glfw-3.4.bin.WIN64\lib-vc2022;D:\C++workbeach\ThirdPartyLib\Assimp\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -137,23 +137,49 @@
     <ClCompile Include="glad.c" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="MyTexture.cpp" />
     <Content Include="Images\container2.png" />
     <Content Include="Images\container2_specular.png" />
     <Content Include="Images\defense_tower.png" />
     <Content Include="Images\defense_towers.png" />
     <Content Include="Images\sprite.png" />
-    <Content Include="Shaders\light_shader.fs.txt" />
-    <Content Include="Shaders\light_shader.vs.txt" />
-    <Content Include="Shaders\shader.fs.txt" />
-    <Content Include="Shaders\shader.vs.txt" />
+    <Content Include="Model\nanosuit\arm_dif.png" />
+    <Content Include="Model\nanosuit\arm_showroom_ddn.png" />
+    <Content Include="Model\nanosuit\arm_showroom_spec.png" />
+    <Content Include="Model\nanosuit\body_dif.png" />
+    <Content Include="Model\nanosuit\body_showroom_ddn.png" />
+    <Content Include="Model\nanosuit\body_showroom_spec.png" />
+    <Content Include="Model\nanosuit\glass_ddn.png" />
+    <Content Include="Model\nanosuit\glass_dif.png" />
+    <Content Include="Model\nanosuit\hand_dif.png" />
+    <Content Include="Model\nanosuit\hand_showroom_ddn.png" />
+    <Content Include="Model\nanosuit\hand_showroom_spec.png" />
+    <Content Include="Model\nanosuit\helmet_diff.png" />
+    <Content Include="Model\nanosuit\helmet_showroom_ddn.png" />
+    <Content Include="Model\nanosuit\helmet_showroom_spec.png" />
+    <Content Include="Model\nanosuit\leg_dif.png" />
+    <Content Include="Model\nanosuit\leg_showroom_ddn.png" />
+    <Content Include="Model\nanosuit\leg_showroom_spec.png" />
+    <Content Include="Model\nanosuit\LICENSE.txt" />
+    <Content Include="Model\nanosuit\nanosuit.blend" />
+    <Content Include="Model\nanosuit\nanosuit.mtl" />
+    <Content Include="Model\nanosuit\nanosuit.obj" />
+    <Content Include="Model\nanosuit\nanosuit.rar" />
+    <Content Include="Shaders\1.model_loading.vs.glsl" />
+    <Content Include="Shaders\light_shader.fs.glsl" />
+    <Content Include="Shaders\light_shader.vs.glsl" />
+    <Content Include="Shaders\shader.fs.glsl" />
+    <Content Include="Shaders\shader.vs.glsl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="Shader.h" />
-    <ClInclude Include="Texture.h" />
+    <ClInclude Include="MyTexture.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Shaders\1.model_loading.fs.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
