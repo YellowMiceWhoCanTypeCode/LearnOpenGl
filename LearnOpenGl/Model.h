@@ -18,6 +18,8 @@
 #include <iostream>
 #include <map>
 #include <vector>
+
+#include "Renderer/Shader.h"
 using namespace std;
 
 inline unsigned int TextureFromFile(const char* path, const string& directory, bool gamma = false);

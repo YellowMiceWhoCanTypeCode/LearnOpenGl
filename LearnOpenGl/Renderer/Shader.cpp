@@ -3,6 +3,10 @@
 #include "glm.hpp"
 #include <gtc/type_ptr.inl>
 
+#include <fstream>
+#include <iostream>
+
+
 Shader::Shader(const char* vertexPath, const char* fragmentPath)
 {
     //【1】从文件中获取顶点/片段着色器

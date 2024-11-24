@@ -6,16 +6,19 @@
 #include <glad/glad.h>
 
 #include <string>
-#include <fstream>
 #include <fwd.hpp>
 #include <sstream>
-#include <iostream>
 
 class Shader
 {
 public:
     // 程序ID
     unsigned int ID;
+
+    Shader()
+        : ID(0)
+    {
+    }
 
     // 构造器读取并构建着色器
     Shader(const char* vertexPath, const char* fragmentPath);

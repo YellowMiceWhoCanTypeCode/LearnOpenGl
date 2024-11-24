@@ -7,16 +7,11 @@
 #include <gtc/matrix_transform.hpp>
 #include <gtc/type_ptr.hpp>
 
-#include "Shader.h"
+#include "Renderer/Shader.h"
 #include "Camera.h"
 #include "Model.h"
 
 #include <iostream>
-
-void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void mouse_callback(GLFWwindow* window, double xpos, double ypos);
-void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
-void processInput(GLFWwindow* window);
 
 // settings
 const unsigned int SCR_WIDTH = 800;
@@ -32,35 +27,35 @@ bool firstMouse = true;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
+//window change callback
+void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+//mouse move callback
+void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+//mouse scroll callback
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+//keyboard input callback
+void processInput(GLFWwindow* window);
+
+//window initial
+GLFWwindow* WindowInitial();
+//input callback configure
+void InputCallBackConfig(GLFWwindow* window);
+//third-party libraries config
+void ThirdPartLibrariesConfig();
+
+//Logic Entry Function
+void LogicEntry();
+//Render Entry Function
+void RenderEntry();
+
+
 int main()
 {
-    // glfw: initialize and configure
-    // ------------------------------
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
-
-    // glfw window creation
-    // --------------------
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
-    if (window == NULL)
-    {
-        std::cout << "Failed to create GLFW window" << std::endl;
-        glfwTerminate();
+    GLFWwindow* window = WindowInitial();
+    if (window == nullptr)
         return -1;
-    }
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-    glfwSetCursorPosCallback(window, mouse_callback);
-    glfwSetScrollCallback(window, scroll_callback);
 
-    // tell GLFW to capture our mouse
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    InputCallBackConfig(window);
 
     // glad: load all OpenGL function pointers
     // ---------------------------------------
@@ -70,25 +65,14 @@ int main()
         return -1;
     }
 
-    // tell stb_image.h to flip loaded texture's on the y-axis (before loading model).
-    stbi_set_flip_vertically_on_load(true);
-
-    // configure global opengl state
-    // -----------------------------
-    glEnable(GL_DEPTH_TEST);
+    ThirdPartLibrariesConfig();
 
     // build and compile shaders
     // -------------------------
-    Shader ourShader("Shaders/1.model_loading.vs.glsl", "Shaders/1.model_loading.fs.glsl");
-
+    Shader ourShader("Resource/Shaders/1.model_loading.vs.glsl", "Resource/Shaders/1.model_loading.fs.glsl");
     // load models
     // -----------
-    Model ourModel("Model/nanosuit/nanosuit.obj");
-
-
-    // draw in wireframe
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-
+    Model ourModel("Resource/Model/nanosuit/nanosuit.obj");
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
@@ -103,10 +87,13 @@ int main()
         // -----
         processInput(window);
 
+        //config OpenGl State
+        glEnable(GL_DEPTH_TEST);
+        glEnable(GL_STENCIL_TEST);
         // render
         // ------
-        glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
         // don't forget to enable shader before setting uniforms
         ourShader.use();
@@ -137,8 +124,15 @@ int main()
     return 0;
 }
 
-// process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
-// ---------------------------------------------------------------------------------------------------------
+void LogicEntry()
+{
+}
+
+void RenderEntry()
+{
+}
+
+
 void processInput(GLFWwindow* window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
@@ -154,8 +148,6 @@ void processInput(GLFWwindow* window)
         camera.ProcessKeyboard(RIGHT, deltaTime);
 }
 
-// glfw: whenever the window size changed (by OS or user resize) this callback function executes
-// ---------------------------------------------------------------------------------------------
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
     // make sure the viewport matches the new window dimensions; note that width and 
@@ -163,8 +155,6 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
-// glfw: whenever the mouse moves, this callback is called
-// -------------------------------------------------------
 void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
 {
     float xpos = static_cast<float>(xposIn);
@@ -186,9 +176,48 @@ void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
     camera.ProcessMouseMovement(xoffset, yoffset);
 }
 
-// glfw: whenever the mouse scroll wheel scrolls, this callback is called
-// ----------------------------------------------------------------------
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
     camera.ProcessMouseScroll(static_cast<float>(yoffset));
+}
+
+GLFWwindow* WindowInitial()
+{
+    // glfw: initialize and configure
+    // ------------------------------
+    glfwInit();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+#ifdef __APPLE__
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
+
+    // glfw window creation
+    // --------------------
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+    if (window == NULL)
+    {
+        std::cout << "Failed to create GLFW window" << std::endl;
+        glfwTerminate();
+        return nullptr;
+    }
+    glfwMakeContextCurrent(window);
+    return window;
+}
+
+void InputCallBackConfig(GLFWwindow* window)
+{
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    glfwSetCursorPosCallback(window, mouse_callback);
+    glfwSetScrollCallback(window, scroll_callback);
+
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+}
+
+void ThirdPartLibrariesConfig()
+{
+    // tell stb_image.h to flip loaded texture's on the y-axis (before loading model).
+    stbi_set_flip_vertically_on_load(true);
 }
