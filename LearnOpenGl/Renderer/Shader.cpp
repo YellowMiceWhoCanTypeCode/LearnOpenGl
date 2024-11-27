@@ -1,11 +1,11 @@
 #include "Shader.h"
+#include "../Core.h"
 
 #include "glm.hpp"
 #include <gtc/type_ptr.inl>
 
 #include <fstream>
 #include <iostream>
-
 
 Shader::Shader(const char* vertexPath, const char* fragmentPath)
 {
@@ -95,27 +95,52 @@ void Shader::use()
 
 void Shader::setBool(const std::string& name, bool value) const
 {
-    glUniform1i(glGetUniformLocation(ID, name.c_str()), (int)value);
+    const GLint location = glGetUniformLocation(ID, name.c_str());
+    if (location == -1)
+    {
+        Debug_OutPut("Error:Get Bool Location False");
+    }
+    glUniform1i(location, (int)value);
 }
 
 void Shader::setInt(const std::string& name, int value) const
 {
-    glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
+    const GLint location = glGetUniformLocation(ID, name.c_str());
+    if (location == -1)
+    {
+        Debug_OutPut("Error:Get Int Location False");
+    }
+    glUniform1i(location, value);
 }
 
 void Shader::setFloat(const std::string& name, float value) const
 {
-    glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
+    const GLint location = glGetUniformLocation(ID, name.c_str());
+    if (location == -1)
+    {
+        Debug_OutPut("Error:Get Float Location False");
+    }
+    glUniform1f(location, value);
 }
 
 void Shader::setMat4(const std::string& name, glm::mat4 value) const
 {
-    glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, glm::value_ptr(value));
+    const GLint location = glGetUniformLocation(ID, name.c_str());
+    if (location == -1)
+    {
+        Debug_OutPut("Error:Get Mat4 Location False");
+    }
+    glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(value));
 }
 
 void Shader::setVec3(const std::string& name, glm::vec3 value) const
 {
-    glUniform3fv(glGetUniformLocation(ID, name.c_str()), 1, glm::value_ptr(value));
+    const GLint location = glGetUniformLocation(ID, name.c_str());
+    if (location == -1)
+    {
+        Debug_OutPut("Error:Get Vec3 Location False");
+    }
+    glUniform3fv(location, 1, glm::value_ptr(value));
 }
 
 void Shader::setVec3(const std::string& name, float x, float y, float z) const

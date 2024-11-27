@@ -285,7 +285,6 @@
       <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
-    <ClCompile Include="MyTexture.cpp" />
     <ClCompile Include="Renderer\Shader.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -447,6 +446,7 @@
     <Content Include="Resource\Images\skybox\right.jpg" />
     <Content Include="Resource\Images\skybox\top.jpg" />
     <Content Include="Resource\Images\sprite.png" />
+    <Content Include="Resource\Images\wood.png" />
     <Content Include="Resource\Model\nanosuit\arm_dif.png" />
     <Content Include="Resource\Model\nanosuit\arm_showroom_ddn.png" />
     <Content Include="Resource\Model\nanosuit\arm_showroom_spec.png" />
@@ -469,23 +469,33 @@
     <Content Include="Resource\Model\nanosuit\nanosuit.mtl" />
     <Content Include="Resource\Model\nanosuit\nanosuit.obj" />
     <Content Include="Resource\Model\nanosuit\nanosuit.rar" />
+    <Content Include="Resource\Model\TemplateFloor.FBX" />
     <Content Include="Resource\Shaders\1.model_loading.vs.glsl" />
-    <Content Include="Resource\Shaders\light_shader.fs.glsl" />
-    <Content Include="Resource\Shaders\light_shader.vs.glsl" />
-    <Content Include="Resource\Shaders\shader.fs.glsl" />
-    <Content Include="Resource\Shaders\shader.vs.glsl" />
+    <Content Include="Resource\Shaders\Core\function_lib.glsl" />
+    <Content Include="Resource\Shaders\Core\struct_lib.glsl" />
+    <Content Include="Resource\Shaders\debug_quad.fs.glsl" />
+    <Content Include="Resource\Shaders\debug_quad.vs.glsl" />
+    <Content Include="Resource\Shaders\light_cal_example.vs.glsl" />
+    <Content Include="Resource\Shaders\light_cal_example.fs.glsl" />
+    <Content Include="Resource\Shaders\floor.fs.glsl" />
+    <Content Include="Resource\Shaders\floor.vs.glsl" />
+    <Content Include="Resource\Shaders\shadow_mapping.fs.glsl" />
+    <Content Include="Resource\Shaders\shadow_mapping.vs.glsl" />
+    <Content Include="Resource\Shaders\shadow_mapping_depth.fs.glsl" />
+    <Content Include="Resource\Shaders\shadow_mapping_depth.vs.glsl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Core.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="Renderer\IndexBuffer.h" />
     <ClInclude Include="Renderer\Renderer.h" />
-    <ClInclude Include="MyTexture.h" />
     <ClInclude Include="Renderer\Shader.h" />
     <ClInclude Include="Renderer\VertexArray.h" />
     <ClInclude Include="Renderer\VertexBuffer.h" />
     <ClInclude Include="Temp\CubeMapTexture.h" />
+    <ClInclude Include="ToolsFuncLib.h" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resource\" />

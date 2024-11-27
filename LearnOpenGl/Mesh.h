@@ -16,6 +16,8 @@ using namespace std;
 
 #define MAX_BONE_INFLUENCE 4
 
+extern GLuint depthMap;
+
 struct Vertex
 {
     // position
@@ -69,26 +71,47 @@ public:
         unsigned int specularNr = 1;
         unsigned int normalNr = 1;
         unsigned int heightNr = 1;
+        int i_max_record = 0;
         for (unsigned int i = 0; i < textures.size(); i++)
         {
+            i_max_record = i;
             glActiveTexture(GL_TEXTURE0 + i); // active proper texture unit before binding
             // retrieve texture number (the N in diffuse_textureN)
             string number;
             string name = textures[i].type;
             if (name == "texture_diffuse")
+            {
+                name = "diffuse";
                 number = std::to_string(diffuseNr++);
+            }
             else if (name == "texture_specular")
+            {
+                name = "specular";
                 number = std::to_string(specularNr++); // transfer unsigned int to string
+            }
             else if (name == "texture_normal")
+            {
+                name = "normal";
                 number = std::to_string(normalNr++); // transfer unsigned int to string
+            }
             else if (name == "texture_height")
+            {
+                name = "height";
                 number = std::to_string(heightNr++); // transfer unsigned int to string
+            }
 
             // now set the sampler to the correct texture unit
-            glUniform1i(glGetUniformLocation(shader.ID, (name + number).c_str()), i);
+            //auto location = glGetUniformLocation(shader.ID, (name + number).c_str());
+            std::string texture_name = "material" + number + "." + name;
+            auto location = glGetUniformLocation(shader.ID, texture_name.c_str());
+            glUniform1i(location, i);
             // and finally bind the texture
             glBindTexture(GL_TEXTURE_2D, textures[i].id);
         }
+
+        glActiveTexture(GL_TEXTURE0 + i_max_record + 1);
+        shader.setInt("shadowMap", i_max_record + 1);
+        glBindTexture(GL_TEXTURE_2D, depthMap);
 
         // draw mesh
         glBindVertexArray(VAO);

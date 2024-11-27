@@ -1,10 +1,8 @@
 ﻿#include "CubeMapTexture.h"
 
-#include "../MyTexture.h"
-
 CubeMapTexture::CubeMapTexture(const std::string paths[6])
 {
-    glGenTextures(1, &textureID_);
+    /*glGenTextures(1, &textureID_);
     glBindTexture(GL_TEXTURE_CUBE_MAP, textureID_);
     unsigned char* data = nullptr;
     int width, height, nrChannel;
@@ -20,15 +18,15 @@ CubeMapTexture::CubeMapTexture(const std::string paths[6])
         glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 
         datas_[i] = data;
-    }
+    }*/
 }
 
 void CubeMapTexture::Bind()
 {
-    glBindTexture(GL_TEXTURE_CUBE_MAP, textureID_);
+    //glBindTexture(GL_TEXTURE_CUBE_MAP, textureID_);
 }
 
 void CubeMapTexture::Unbind()
 {
-    glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+    //glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 }
