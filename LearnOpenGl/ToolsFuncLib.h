@@ -1,12 +1,14 @@
 ﻿#pragma once
 
+#include <fstream>
+#include <sstream>
 #include <glad/glad.h>
 
-#include <string>
+#include "Core.h"
 
 namespace ToolsFuncLib
 {
-    GLuint loadTexture(const std::string& path)
+    inline GLuint LoadTexture(const std::string& path)
     {
         // Generate texture ID and load texture data 
         GLuint textureID;
@@ -32,5 +34,30 @@ namespace ToolsFuncLib
         glBindTexture(GL_TEXTURE_2D, 0);
         stbi_image_free(image);
         return textureID;
+    }
+
+    inline std::string LoadStringFromFile(const std::string& path)
+    {
+        std::string shaderCode;
+        std::ifstream shaderFile;
+        try
+        {
+            shaderFile.open(path);
+            std::stringstream shaderStream;
+            shaderStream << shaderFile.rdbuf();
+            shaderFile.close();
+            shaderCode = shaderStream.str();
+        }
+        catch (std::ifstream::failure& e)
+        {
+            std::cout << "ERROR::SHADER::FILE_NOT_SUCCESSFULLY_READ" << std::endl;
+        }
+        return shaderCode;
+    }
+
+    inline void SetUpNameString(const std::string& name, const std::string& path)
+    {
+        const auto shaderCode = ToolsFuncLib::LoadStringFromFile(path);
+        glNamedStringARB(GL_SHADER_INCLUDE_ARB, -1, name.c_str(), -1, shaderCode.c_str());
     }
 }

@@ -1,4 +1,7 @@
-﻿//#define DEBUG_OUTPUT_ON
+﻿#pragma once
+#include <iostream>
+
+//#define DEBUG_OUTPUT_ON
 
 #ifdef DEBUG_OUTPUT_ON
 #define Debug_OutPut(info) std::cout<<(info)<<std::endl

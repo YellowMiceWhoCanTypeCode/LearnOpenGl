@@ -1,9 +1,6 @@
 #define STB_IMAGE_IMPLEMENTATION
 #define GL_SILENCE_DEPRECATION
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
 #include <glm.hpp>
 #include <gtc/matrix_transform.hpp>
 
@@ -11,33 +8,21 @@
 #include "Camera.h"
 #include "Model.h"
 
-#include <iostream>
-
 #include "Light.h"
-#include "vendor/imgui/imgui.h"
-#include "vendor/imgui/imgui_impl_glfw.h"
-#include "vendor/imgui/imgui_impl_opengl3.h"
+#include "Config.h"
+#include "ToolsFuncLib.h"
 #include "vendor/imgui/imgui_internal.h"
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void mouse_callback(GLFWwindow* window, double xpos, double ypos);
-void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
-void mousebutton_callback(GLFWwindow* window, int button, int action, int mods);
-void processInput(GLFWwindow* window);
 unsigned int loadTexture(const char* path);
 void renderScene(const Shader& shader);
 void renderCube();
 void renderQuad();
-
-// settings
-unsigned int SCR_WIDTH = 800;
-unsigned int SCR_HEIGHT = 600;
+void renderGanyv(Shader& shader, Model& model);
 
 // camera
 Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
-float lastX = (float)SCR_WIDTH / 2.0;
-float lastY = (float)SCR_HEIGHT / 2.0;
-bool firstMouse = true;
+glm::mat4 view(1.0);
+glm::mat4 projection(1.0);
 
 // timing
 float deltaTime = 0.0f;
@@ -46,80 +31,23 @@ float lastFrame = 0.0f;
 // meshes
 unsigned int planeVAO;
 
+const std::string shaderFilesPath = "Resource/Shaders/";
+
 int main()
 {
-    // glfw: initialize and configure
-    // ------------------------------
-    glfwInit();
-    const char* glsl_version = "#version 130";
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    GLFWwindow* window = GlfwInitial();
+    const ImGuiIO& io = ImGuiInitial(window);
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
-
-    // glfw window creation
-    // --------------------
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
-    if (window == NULL)
-    {
-        std::cout << "Failed to create GLFW window" << std::endl;
-        glfwTerminate();
-        return -1;
-    }
-    glfwMakeContextCurrent(window);
-    glfwSwapInterval(1);
-
-    //set imgui context
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-
-    ImGuiIO& io = ImGui::GetIO();
-    (void)io;
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
-
-    //set imgui style
-    ImGui::StyleColorsDark();
-
-    //set platform/renderer backends
-    ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init(glsl_version);
-
-    //add chinese fonts
-    ImFont* font = io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\msyh.ttc", 18.0f, nullptr, io.Fonts->GetGlyphRangesChineseFull());
-    if (!font)
-    {
-        std::cerr << "Failed to load Chinese font!" << std::endl;
-    }
+    ToolsFuncLib::SetUpNameString("/LightingFuncLib.glsl", shaderFilesPath + "Core/func_lib.glsl");
 
     //our state
     bool show_demo_window = true;
     bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-    glfwSetCursorPosCallback(window, mouse_callback);
-    // glfwSetMouseButtonCallback(window, mousebutton_callback);
-    glfwSetScrollCallback(window, scroll_callback);
-
-    // tell GLFW to capture our mouse
-    // glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_CAPTURED);
-
-    // glad: load all OpenGL function pointers
-    // ---------------------------------------
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
-        std::cout << "Failed to initialize GLAD" << std::endl;
-        return -1;
-    }
-
     // configure global opengl state
     // -----------------------------
-    glEnable(GL_DEPTH_TEST);
+    //glEnable(GL_DEPTH_TEST);
 
     // build and compile shaders
     // -------------------------
@@ -192,9 +120,16 @@ int main()
 
     // lighting info
     // -------------
-    DirLight* dirLight = new DirLight({-2.0f, 4.0f, -1.0f}, {1.0f, -1.0f, 1.0f}, {0.3f, 0.3f, 0.3f}, {0.3f, 0.3f, 0.3f}, {0.3f, 0.3f, 0.3f});
+    auto* dirLight = new DirLight(
+        {-2.0f, 4.0f, -1.0f},
+        {1.0f, -1.0f, 1.0f},
+        {0.3f, 0.3f, 0.3f},
+        {0.3f, 0.3f, 0.3f},
+        {0.3f, 0.3f, 0.3f}
+    );
 
-    float testNum[3] = {0.0, 0.0, 0.0};
+    Model ganyv_model("Resource/Model/shenli/shenli.fbx");
+    Shader ganyv_shader(shaderFilesPath + "simple.vs.glsl", shaderFilesPath + "simple.fs.glsl");
 
     // render loop
     // -----------
@@ -213,6 +148,7 @@ int main()
 
         // render
         // ------
+        glEnable(GL_DEPTH_TEST);
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -234,6 +170,7 @@ int main()
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, woodTexture);
         renderScene(simpleDepthShader);
+        renderGanyv(simpleDepthShader, ganyv_model);
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
         // reset viewport
@@ -243,8 +180,8 @@ int main()
         // 2. render scene as normal using the generated depth/shadow map  
         // --------------------------------------------------------------
         shader.use();
-        glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        glm::mat4 view = camera.GetViewMatrix();
+        projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        view = camera.GetViewMatrix();
         shader.setMat4("projection", projection);
         shader.setMat4("view", view);
         // set light uniforms
@@ -257,14 +194,7 @@ int main()
         glBindTexture(GL_TEXTURE_2D, depthMap);
         renderScene(shader);
 
-        // render Depth map to quad for visual debugging
-        // ---------------------------------------------
-        debugDepthQuad.use();
-        debugDepthQuad.setFloat("near_plane", near_plane);
-        debugDepthQuad.setFloat("far_plane", far_plane);
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, depthMap);
-        //renderQuad();
+        renderGanyv(ganyv_shader, ganyv_model);
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
@@ -474,81 +404,20 @@ void renderQuad()
     glBindVertexArray(0);
 }
 
-// process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
-// ---------------------------------------------------------------------------------------------------------
-void processInput(GLFWwindow* window)
+void renderGanyv(Shader& shader, Model& model)
 {
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        camera.ProcessKeyboard(FORWARD, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        camera.ProcessKeyboard(BACKWARD, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        camera.ProcessKeyboard(LEFT, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        camera.ProcessKeyboard(RIGHT, deltaTime);
+    shader.use();
+    glm::mat4 ganyv_model_mat = glm::mat4(1.0);
+    //mika_model_mat = glm::translate(mika_model_mat, {0.0f, 0.0f, 0.0f});
+    ganyv_model_mat = glm::translate(ganyv_model_mat, glm::vec3(-3.0f, 0.0f, 0.0f));
+    ganyv_model_mat = glm::rotate(ganyv_model_mat, glm::radians(-90.0f), glm::vec3(1.0, 0.0, 0.0));
+    ganyv_model_mat = glm::scale(ganyv_model_mat, glm::vec3(0.5f, 0.5f, 0.5f));
+    shader.setMat4("model", ganyv_model_mat);
+    shader.setMat4("view", view);
+    shader.setMat4("projection", projection);
+    model.Draw(shader);
 }
 
-// glfw: whenever the window size changed (by OS or user resize) this callback function executes
-// ---------------------------------------------------------------------------------------------
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
-{
-    // make sure the viewport matches the new window dimensions; note that width and 
-    // height will be significantly larger than specified on retina displays.
-    SCR_WIDTH = width;
-    SCR_HEIGHT = height;
-    glViewport(0, 0, width, height);
-}
-
-
-// glfw: whenever the mouse moves, this callback is called
-// -------------------------------------------------------
-void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
-{
-    ImGuiIO& io = ImGui::GetIO();
-    io.MousePos = ImVec2((float)xposIn, (float)yposIn);
-    if ((glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) != GLFW_PRESS) || io.WantCaptureMouse == true)
-    {
-        lastX = xposIn;
-        lastY = yposIn;
-        return;
-    }
-
-    float xpos = static_cast<float>(xposIn);
-    float ypos = static_cast<float>(yposIn);
-    if (firstMouse)
-    {
-        lastX = xpos;
-        lastY = ypos;
-        firstMouse = false;
-    }
-
-    float xoffset = xpos - lastX;
-    float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
-
-    lastX = xpos;
-    lastY = ypos;
-
-    camera.ProcessMouseMovement(xoffset, yoffset);
-}
-
-void mousebutton_callback(GLFWwindow* window, int button, int action, int mods)
-{
-    ImGuiIO& io = ImGui::GetIO();
-    if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
-    {
-        io.MouseDown[0] = true;
-    }
-}
-
-// glfw: whenever the mouse scroll wheel scrolls, this callback is called
-// ----------------------------------------------------------------------
-void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
-{
-    camera.ProcessMouseScroll(static_cast<float>(yoffset));
-}
 
 // utility function for loading a 2D texture from file
 // ---------------------------------------------------

@@ -85,6 +85,7 @@ private:
 
     Mesh processMesh(aiMesh* mesh, const aiScene* scene)
     {
+        // Debug_OutPut(mesh->mName.C_Str());
         // data to fill
         vector<Vertex> vertices;
         vector<unsigned int> indices;
@@ -211,11 +212,13 @@ unsigned int TextureFromFile(const char* path, const string& directory, bool gam
     unsigned int textureID;
     glGenTextures(1, &textureID);
 
+    // stbi_set_flip_vertically_on_load(true);
+
     int width, height, nrComponents;
     unsigned char* data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
     if (data)
     {
-        GLenum format;
+        GLenum format = GL_RGB;
         if (nrComponents == 1)
             format = GL_RED;
         else if (nrComponents == 3)
@@ -236,7 +239,7 @@ unsigned int TextureFromFile(const char* path, const string& directory, bool gam
     }
     else
     {
-        std::cout << "Texture failed to load at path: " << path << std::endl;
+        std::cout << "Model.h::Texture failed to load at path: " << path << std::endl;
         stbi_image_free(data);
     }
 

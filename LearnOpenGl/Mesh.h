@@ -2,21 +2,15 @@
 #define MESH_H
 
 #include <glad/glad.h> // holds all OpenGL type declarations
-
 #include <glm.hpp>
-#include <gtc/matrix_transform.hpp>
-
-#include "Renderer/Shader.h"
-
 #include <string>
 #include <vector>
 
 #include "Renderer/Shader.h"
+
 using namespace std;
 
 #define MAX_BONE_INFLUENCE 4
-
-extern GLuint depthMap;
 
 struct Vertex
 {
@@ -102,16 +96,12 @@ public:
 
             // now set the sampler to the correct texture unit
             //auto location = glGetUniformLocation(shader.ID, (name + number).c_str());
-            std::string texture_name = "material" + number + "." + name;
+            std::string texture_name = name;
             auto location = glGetUniformLocation(shader.ID, texture_name.c_str());
             glUniform1i(location, i);
             // and finally bind the texture
             glBindTexture(GL_TEXTURE_2D, textures[i].id);
         }
-
-        glActiveTexture(GL_TEXTURE0 + i_max_record + 1);
-        shader.setInt("shadowMap", i_max_record + 1);
-        glBindTexture(GL_TEXTURE_2D, depthMap);
 
         // draw mesh
         glBindVertexArray(VAO);
