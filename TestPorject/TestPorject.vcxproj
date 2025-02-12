@@ -156,6 +156,9 @@
   <ItemGroup>
     <ClCompile Include="TestPorject.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resource\test_codes.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

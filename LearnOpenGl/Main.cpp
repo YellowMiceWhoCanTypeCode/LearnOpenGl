@@ -1,17 +1,15 @@
+/*
 #define STB_IMAGE_IMPLEMENTATION
 #define GL_SILENCE_DEPRECATION
 
 #include <glm.hpp>
+#include <stb_image.h>
 #include <gtc/matrix_transform.hpp>
-
 #include "Renderer/Shader.h"
-#include "Camera.h"
-#include "Model.h"
-
+#include "include/Camera.h"
 #include "Light.h"
-#include "Config.h"
 #include "ToolsFuncLib.h"
-#include "vendor/imgui/imgui_internal.h"
+#include "include/Model.h"
 
 unsigned int loadTexture(const char* path);
 void renderScene(const Shader& shader);
@@ -41,18 +39,14 @@ int main()
     ToolsFuncLib::SetUpNameString("/LightingFuncLib.glsl", shaderFilesPath + "Core/func_lib.glsl");
 
     //our state
-    bool show_demo_window = true;
+    bool show_demo_window = false;
     bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-    // configure global opengl state
-    // -----------------------------
-    //glEnable(GL_DEPTH_TEST);
-
     // build and compile shaders
     // -------------------------
-    Shader shader("Resource/Shaders/shadow_mapping.vs.glsl", "Resource/Shaders/shadow_mapping.fs.glsl");
-    Shader simpleDepthShader("Resource/Shaders/shadow_mapping_depth.vs.glsl", "Resource/Shaders/shadow_mapping_depth.fs.glsl");
+    Shader shader("Resource/Shaders/main.vs.glsl", "Resource/Shaders/main.fs.glsl");
+    Shader simpleDepthShader("Resource/Shaders/shadow_depth.vs.glsl", "Resource/Shaders/shadow_depth.fs.glsl");
     Shader debugDepthQuad("Resource/Shaders/debug_quad.vs.glsl", "Resource/Shaders/debug_quad.fs.glsl");
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
@@ -129,7 +123,7 @@ int main()
     );
 
     Model ganyv_model("Resource/Model/shenli/shenli.fbx");
-    Shader ganyv_shader(shaderFilesPath + "simple.vs.glsl", shaderFilesPath + "simple.fs.glsl");
+    Shader ganyv_shader(shaderFilesPath + "cartoon.vs.glsl", shaderFilesPath + "cartoon.fs.glsl");
 
     // render loop
     // -----------
@@ -145,6 +139,8 @@ int main()
         // input
         // -----
         processInput(window);
+
+        //deferred shading start: vertex pass
 
         // render
         // ------
@@ -252,7 +248,7 @@ int main()
         ImGui::Render();
         /*int display_w, display_h;
         glfwGetFramebufferSize(window, &display_w, &display_h);
-        glViewport(0, 0, display_w, display_h);*/
+        glViewport(0, 0, display_w, display_h);#1#
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
         glfwSwapBuffers(window);
@@ -415,7 +411,7 @@ void renderGanyv(Shader& shader, Model& model)
     shader.setMat4("model", ganyv_model_mat);
     shader.setMat4("view", view);
     shader.setMat4("projection", projection);
-    model.Draw(shader);
+    model.Draw();
 }
 
 
@@ -458,3 +454,4 @@ unsigned int loadTexture(char const* path)
 
     return textureID;
 }
+*/

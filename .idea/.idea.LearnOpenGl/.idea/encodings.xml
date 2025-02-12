@@ -2,8 +2,8 @@
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with BOM under Windows, with no BOM otherwise">
     <file url="file://$PROJECT_DIR$/LearnOpenGl/Main.cpp" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/LearnOpenGl/Renderer/Shader.cpp" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/LearnOpenGl/Renderer/Shader.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/LearnOpenGl/Resource/Shaders/floor.fs.glsl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/LearnOpenGl/include/Renderer/Shader.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/LearnOpenGl/src/Shader.cpp" charset="UTF-8" />
   </component>
 </project>

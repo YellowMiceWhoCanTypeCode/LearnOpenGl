@@ -1,0 +1,1 @@
+﻿std::cout<<"string cout from file"<<std::endl;

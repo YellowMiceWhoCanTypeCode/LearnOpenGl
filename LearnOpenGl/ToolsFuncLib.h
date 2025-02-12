@@ -2,6 +2,7 @@
 
 #include <fstream>
 #include <sstream>
+#include <stb_image.h>
 #include <glad/glad.h>
 
 #include "Core.h"

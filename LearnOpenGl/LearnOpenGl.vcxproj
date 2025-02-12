@@ -72,7 +72,7 @@
     <PropertyGroup Label="UserMacros" />
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
         <SourcePath>$(SourcePath)</SourcePath>
-        <IncludePath>D:\C++workbeach\ThirdPartyLib\glad\include;D:\C++workbeach\ThirdPartyLib\glfw-3.4.bin.WIN64\include;</IncludePath>
+        <IncludePath>D:\C++workbeach\ThirdPartyLib\glad\include;D:\C++workbeach\ThirdPartyLib\glfw-3.4.bin.WIN64\include;.\vendor;</IncludePath>
         <LibraryPath>D:\C++workbeach\ThirdPartyLib\glfw-3.4.bin.WIN64\lib-vc2022;D:\C++workbeach\ThirdPartyLib\Assimp\lib;$(LibraryPath)</LibraryPath>
     </PropertyGroup>
     <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -109,13 +109,15 @@
             <SDLCheck>true</SDLCheck>
             <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
             <ConformanceMode>true</ConformanceMode>
-            <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+            <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;.\vendor;</AdditionalIncludeDirectories>
             <LanguageStandard>stdcpp17</LanguageStandard>
+            <AdditionalOptions>/utf-8</AdditionalOptions>
         </ClCompile>
         <Link>
             <SubSystem>Console</SubSystem>
             <GenerateDebugInformation>true</GenerateDebugInformation>
             <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+            <AdditionalOptions></AdditionalOptions>
         </Link>
         <Bscmake>
             <AdditionalOptions>/utf-8</AdditionalOptions>
@@ -140,303 +142,1416 @@
     <ItemGroup>
         <ClCompile Include="glad.c" />
         <ClCompile Include="Main.cpp" />
-        <ClCompile Include="Renderer\IndexBuffer.cpp">
-            <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
-            <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-            <Optimization>Disabled</Optimization>
-            <SupportJustMyCode>true</SupportJustMyCode>
-            <AssemblerOutput>NoListing</AssemblerOutput>
-            <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
-            <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
-            <BrowseInformation>false</BrowseInformation>
-            <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
-            <CompileAs>Default</CompileAs>
-            <ConformanceMode>true</ConformanceMode>
-            <DiagnosticsFormat>Column</DiagnosticsFormat>
-            <DisableLanguageExtensions>false</DisableLanguageExtensions>
-            <ErrorReporting>Prompt</ErrorReporting>
-            <ExpandAttributedSource>false</ExpandAttributedSource>
-            <ExceptionHandling>Sync</ExceptionHandling>
-            <EnableASAN>false</EnableASAN>
-            <EnableFuzzer>false</EnableFuzzer>
-            <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
-            <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-            <FloatingPointModel>Precise</FloatingPointModel>
-            <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-            <GenerateModuleDependencies>false</GenerateModuleDependencies>
-            <GenerateSourceDependencies>false</GenerateSourceDependencies>
-            <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
-            <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-            <IntrinsicFunctions>false</IntrinsicFunctions>
-            <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
-            <LanguageStandard>Default</LanguageStandard>
-            <LanguageStandard_C>Default</LanguageStandard_C>
-            <MinimalRebuild>false</MinimalRebuild>
-            <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
-            <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
-            <OmitDefaultLibName>false</OmitDefaultLibName>
-            <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-            <WholeProgramOptimization>false</WholeProgramOptimization>
-            <ObjectFileName>x64\Debug\</ObjectFileName>
-            <CallingConvention>Cdecl</CallingConvention>
-            <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
-            <PrecompiledHeader>NotUsing</PrecompiledHeader>
-            <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-            <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
-            <PreprocessToFile>false</PreprocessToFile>
-            <PreprocessKeepComments>false</PreprocessKeepComments>
-            <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
-            <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-            <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
-            <ShowIncludes>false</ShowIncludes>
-            <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
-            <SuppressStartupBanner>true</SuppressStartupBanner>
-            <BufferSecurityCheck>true</BufferSecurityCheck>
-            <SmallerTypeCheck>false</SmallerTypeCheck>
-            <SpectreMitigation>false</SpectreMitigation>
-            <StructMemberAlignment>Default</StructMemberAlignment>
-            <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
-            <TranslateIncludes>false</TranslateIncludes>
-            <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
-            <TreatWarningAsError>false</TreatWarningAsError>
-            <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-            <UseFullPaths>true</UseFullPaths>
-            <WarningLevel>Level3</WarningLevel>
-            <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
-            <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-            <IntelJCCErratum>false</IntelJCCErratum>
-            <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
-            <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-            <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
-            <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
-            <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
-            <SDLCheck>true</SDLCheck>
-            <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include</AdditionalIncludeDirectories>
-            <LinkCompiled>true</LinkCompiled>
+        <ClCompile Include="src\Actor.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
         </ClCompile>
-        <ClCompile Include="Renderer\Renderer.cpp">
-            <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
-            <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-            <Optimization>Disabled</Optimization>
-            <SupportJustMyCode>true</SupportJustMyCode>
-            <AssemblerOutput>NoListing</AssemblerOutput>
-            <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
-            <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
-            <BrowseInformation>false</BrowseInformation>
-            <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
-            <CompileAs>Default</CompileAs>
-            <ConformanceMode>true</ConformanceMode>
-            <DiagnosticsFormat>Column</DiagnosticsFormat>
-            <DisableLanguageExtensions>false</DisableLanguageExtensions>
-            <ErrorReporting>Prompt</ErrorReporting>
-            <ExpandAttributedSource>false</ExpandAttributedSource>
-            <ExceptionHandling>Sync</ExceptionHandling>
-            <EnableASAN>false</EnableASAN>
-            <EnableFuzzer>false</EnableFuzzer>
-            <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
-            <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-            <FloatingPointModel>Precise</FloatingPointModel>
-            <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-            <GenerateModuleDependencies>false</GenerateModuleDependencies>
-            <GenerateSourceDependencies>false</GenerateSourceDependencies>
-            <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
-            <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-            <IntrinsicFunctions>false</IntrinsicFunctions>
-            <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
-            <LanguageStandard>Default</LanguageStandard>
-            <LanguageStandard_C>Default</LanguageStandard_C>
-            <MinimalRebuild>false</MinimalRebuild>
-            <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
-            <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
-            <OmitDefaultLibName>false</OmitDefaultLibName>
-            <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-            <WholeProgramOptimization>false</WholeProgramOptimization>
-            <ObjectFileName>x64\Debug\</ObjectFileName>
-            <CallingConvention>Cdecl</CallingConvention>
-            <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
-            <PrecompiledHeader>NotUsing</PrecompiledHeader>
-            <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-            <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
-            <PreprocessToFile>false</PreprocessToFile>
-            <PreprocessKeepComments>false</PreprocessKeepComments>
-            <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
-            <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-            <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
-            <ShowIncludes>false</ShowIncludes>
-            <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
-            <SuppressStartupBanner>true</SuppressStartupBanner>
-            <BufferSecurityCheck>true</BufferSecurityCheck>
-            <SmallerTypeCheck>false</SmallerTypeCheck>
-            <SpectreMitigation>false</SpectreMitigation>
-            <StructMemberAlignment>Default</StructMemberAlignment>
-            <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
-            <TranslateIncludes>false</TranslateIncludes>
-            <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
-            <TreatWarningAsError>false</TreatWarningAsError>
-            <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-            <UseFullPaths>true</UseFullPaths>
-            <WarningLevel>Level3</WarningLevel>
-            <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
-            <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-            <IntelJCCErratum>false</IntelJCCErratum>
-            <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
-            <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-            <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
-            <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
-            <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
-            <SDLCheck>true</SDLCheck>
-            <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include</AdditionalIncludeDirectories>
-            <LinkCompiled>true</LinkCompiled>
+        <ClCompile Include="src\Component.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
         </ClCompile>
-        <ClCompile Include="Renderer\Shader.cpp">
-            <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
-            <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-            <Optimization>Disabled</Optimization>
-            <SupportJustMyCode>true</SupportJustMyCode>
-            <AssemblerOutput>NoListing</AssemblerOutput>
-            <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
-            <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
-            <BrowseInformation>false</BrowseInformation>
-            <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
-            <CompileAs>Default</CompileAs>
-            <ConformanceMode>true</ConformanceMode>
-            <DiagnosticsFormat>Column</DiagnosticsFormat>
-            <DisableLanguageExtensions>false</DisableLanguageExtensions>
-            <ErrorReporting>Prompt</ErrorReporting>
-            <ExpandAttributedSource>false</ExpandAttributedSource>
-            <ExceptionHandling>Sync</ExceptionHandling>
-            <EnableASAN>false</EnableASAN>
-            <EnableFuzzer>false</EnableFuzzer>
-            <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
-            <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-            <FloatingPointModel>Precise</FloatingPointModel>
-            <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-            <GenerateModuleDependencies>false</GenerateModuleDependencies>
-            <GenerateSourceDependencies>false</GenerateSourceDependencies>
-            <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
-            <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-            <IntrinsicFunctions>false</IntrinsicFunctions>
-            <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
-            <LanguageStandard>Default</LanguageStandard>
-            <LanguageStandard_C>Default</LanguageStandard_C>
-            <MinimalRebuild>false</MinimalRebuild>
-            <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
-            <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
-            <OmitDefaultLibName>false</OmitDefaultLibName>
-            <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-            <WholeProgramOptimization>false</WholeProgramOptimization>
-            <ObjectFileName>x64\Debug\</ObjectFileName>
-            <CallingConvention>Cdecl</CallingConvention>
-            <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
-            <PrecompiledHeader>NotUsing</PrecompiledHeader>
-            <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-            <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
-            <PreprocessToFile>false</PreprocessToFile>
-            <PreprocessKeepComments>false</PreprocessKeepComments>
-            <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
-            <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-            <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
-            <ShowIncludes>false</ShowIncludes>
-            <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
-            <SuppressStartupBanner>true</SuppressStartupBanner>
-            <BufferSecurityCheck>true</BufferSecurityCheck>
-            <SmallerTypeCheck>false</SmallerTypeCheck>
-            <SpectreMitigation>false</SpectreMitigation>
-            <StructMemberAlignment>Default</StructMemberAlignment>
-            <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
-            <TranslateIncludes>false</TranslateIncludes>
-            <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
-            <TreatWarningAsError>false</TreatWarningAsError>
-            <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-            <UseFullPaths>true</UseFullPaths>
-            <WarningLevel>Level3</WarningLevel>
-            <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
-            <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-            <IntelJCCErratum>false</IntelJCCErratum>
-            <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
-            <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-            <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
-            <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
-            <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
-            <SDLCheck>true</SDLCheck>
-            <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include</AdditionalIncludeDirectories>
-            <LinkCompiled>true</LinkCompiled>
+        <ClCompile Include="src\GameInstance.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
         </ClCompile>
-        <ClCompile Include="Renderer\VertexArray.cpp" />
-        <ClCompile Include="Renderer\VertexBuffer.cpp">
-            <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
-            <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-            <Optimization>Disabled</Optimization>
-            <SupportJustMyCode>true</SupportJustMyCode>
-            <AssemblerOutput>NoListing</AssemblerOutput>
-            <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
-            <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
-            <BrowseInformation>false</BrowseInformation>
-            <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
-            <CompileAs>Default</CompileAs>
-            <ConformanceMode>true</ConformanceMode>
-            <DiagnosticsFormat>Column</DiagnosticsFormat>
-            <DisableLanguageExtensions>false</DisableLanguageExtensions>
-            <ErrorReporting>Prompt</ErrorReporting>
-            <ExpandAttributedSource>false</ExpandAttributedSource>
-            <ExceptionHandling>Sync</ExceptionHandling>
-            <EnableASAN>false</EnableASAN>
-            <EnableFuzzer>false</EnableFuzzer>
-            <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
-            <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-            <FloatingPointModel>Precise</FloatingPointModel>
-            <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-            <GenerateModuleDependencies>false</GenerateModuleDependencies>
-            <GenerateSourceDependencies>false</GenerateSourceDependencies>
-            <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
-            <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-            <IntrinsicFunctions>false</IntrinsicFunctions>
-            <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
-            <LanguageStandard>Default</LanguageStandard>
-            <LanguageStandard_C>Default</LanguageStandard_C>
-            <MinimalRebuild>false</MinimalRebuild>
-            <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
-            <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
-            <OmitDefaultLibName>false</OmitDefaultLibName>
-            <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-            <WholeProgramOptimization>false</WholeProgramOptimization>
-            <ObjectFileName>x64\Debug\</ObjectFileName>
-            <CallingConvention>Cdecl</CallingConvention>
-            <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
-            <PrecompiledHeader>NotUsing</PrecompiledHeader>
-            <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-            <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
-            <PreprocessToFile>false</PreprocessToFile>
-            <PreprocessKeepComments>false</PreprocessKeepComments>
-            <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
-            <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-            <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
-            <ShowIncludes>false</ShowIncludes>
-            <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
-            <SuppressStartupBanner>true</SuppressStartupBanner>
-            <BufferSecurityCheck>true</BufferSecurityCheck>
-            <SmallerTypeCheck>false</SmallerTypeCheck>
-            <SpectreMitigation>false</SpectreMitigation>
-            <StructMemberAlignment>Default</StructMemberAlignment>
-            <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
-            <TranslateIncludes>false</TranslateIncludes>
-            <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
-            <TreatWarningAsError>false</TreatWarningAsError>
-            <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-            <UseFullPaths>true</UseFullPaths>
-            <WarningLevel>Level3</WarningLevel>
-            <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
-            <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-            <IntelJCCErratum>false</IntelJCCErratum>
-            <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
-            <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-            <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
-            <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
-            <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
-            <SDLCheck>true</SDLCheck>
-            <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include</AdditionalIncludeDirectories>
-            <LinkCompiled>true</LinkCompiled>
+        <ClCompile Include="src\GL_Window.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
         </ClCompile>
+        <ClCompile Include="src\IndexBuffer.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="src\InputDispatcher.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="src\Light.cpp" />
+        <ClCompile Include="src\Material.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="src\MaterialManager.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="src\Mesh.cpp" />
+        <ClCompile Include="src\Model.cpp" />
+        <ClCompile Include="src\Object.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="src\Renderer.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="src\RenderingController.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="src\Shader.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="src\Texture.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="src\UIManager.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="src\UI_Component.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="src\UI_Struct.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="src\VertexArray.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="src\VertexBuffer.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="src\World.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>true</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>stdcpp17</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>NotUsing</PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>x64\Debug\LearnOpenGl.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>x64\Debug\LearnOpenGl.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <SDLCheck>true</SDLCheck>
+          <AdditionalIncludeDirectories>E:\Study\StudyResource\ComputerGraphics\stb_image\stb-master;E:\Study\StudyResource\ComputerGraphics\OpenGL_Mathematics\glm-master\glm;E:\Study\StudyResource\ComputerGraphics\Assimp\include;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="StandardMain.cpp" />
         <ClCompile Include="Temp\CubeMapTexture.cpp" />
         <ClCompile Include="vendor\imgui\imgui.cpp" />
         <ClCompile Include="vendor\imgui\imgui_demo.cpp" />
@@ -595,6 +1710,11 @@
         <Content Include="Resource\Images\container2_specular.png" />
         <Content Include="Resource\Images\defense_tower.png" />
         <Content Include="Resource\Images\defense_towers.png" />
+        <Content Include="Resource\Images\pbr\albedo.png" />
+        <Content Include="Resource\Images\pbr\ao.png" />
+        <Content Include="Resource\Images\pbr\metallic.png" />
+        <Content Include="Resource\Images\pbr\normal.png" />
+        <Content Include="Resource\Images\pbr\roughness.png" />
         <Content Include="Resource\Images\skybox\back.jpg" />
         <Content Include="Resource\Images\skybox\bottom.jpg" />
         <Content Include="Resource\Images\skybox\front.jpg" />
@@ -602,22 +1722,13 @@
         <Content Include="Resource\Images\skybox\right.jpg" />
         <Content Include="Resource\Images\skybox\top.jpg" />
         <Content Include="Resource\Images\sprite.png" />
-        <Content Include="Resource\Images\wood.png" />
+        <Content Include="Resource\Model\floor.fbx" />
         <Content Include="Resource\Model\ganyv\gy.fbm\cloth_tex.png" />
         <Content Include="Resource\Model\ganyv\gy.fbm\emoji_tex.png" />
         <Content Include="Resource\Model\ganyv\gy.fbm\face_tex.png" />
         <Content Include="Resource\Model\ganyv\gy.fbm\hair_tex.png" />
         <Content Include="Resource\Model\ganyv\gy.fbm\skin_tex.png" />
         <Content Include="Resource\Model\ganyv\gy.fbx" />
-        <Content Include="Resource\Model\mika\misono-mika-blue-archive.zip" />
-        <Content Include="Resource\Model\mika\source\Misono_Mika.fbx" />
-        <Content Include="Resource\Model\mika\textures\Acc_C_28.png" />
-        <Content Include="Resource\Model\mika\textures\Eye_C.png" />
-        <Content Include="Resource\Model\mika\textures\Face_C.png" />
-        <Content Include="Resource\Model\mika\textures\Fuku_C_64.png" />
-        <Content Include="Resource\Model\mika\textures\Hair_C.png" />
-        <Content Include="Resource\Model\mika\textures\Morph.png" />
-        <Content Include="Resource\Model\mika\textures\Skin_C.png" />
         <Content Include="Resource\Model\nanosuit\arm_dif.png" />
         <Content Include="Resource\Model\nanosuit\arm_showroom_ddn.png" />
         <Content Include="Resource\Model\nanosuit\arm_showroom_spec.png" />
@@ -644,33 +1755,49 @@
         <Content Include="Resource\Shaders\1.model_loading.vs.glsl" />
         <Content Include="Resource\Shaders\Core\func_lib.glsl" />
         <Content Include="Resource\Shaders\Core\struct_lib.glsl" />
-        <Content Include="Resource\Shaders\debug_quad.fs.glsl" />
-        <Content Include="Resource\Shaders\debug_quad.vs.glsl" />
+        <Content Include="Resource\Shaders\deferred_shading.fs.glsl" />
+        <Content Include="Resource\Shaders\deferred_shading.vs.glsl" />
         <Content Include="Resource\Shaders\light_cal_example.vs.glsl" />
         <Content Include="Resource\Shaders\light_cal_example.fs.glsl" />
         <Content Include="Resource\Shaders\floor.fs.glsl" />
         <Content Include="Resource\Shaders\floor.vs.glsl" />
-        <Content Include="Resource\Shaders\shadow_mapping.fs.glsl" />
-        <Content Include="Resource\Shaders\shadow_mapping.vs.glsl" />
-        <Content Include="Resource\Shaders\shadow_mapping_depth.fs.glsl" />
-        <Content Include="Resource\Shaders\shadow_mapping_depth.vs.glsl" />
-        <Content Include="Resource\Shaders\simple.fs.glsl" />
-        <Content Include="Resource\Shaders\simple.vs.glsl" />
+        <Content Include="Resource\Shaders\main.fs.glsl" />
+        <Content Include="Resource\Shaders\main.vs.glsl" />
+        <Content Include="Resource\Shaders\pbr.fs.glsl" />
+        <Content Include="Resource\Shaders\pbr.vs.glsl" />
+        <Content Include="Resource\Shaders\shadow_depth.fs.glsl" />
+        <Content Include="Resource\Shaders\shadow_depth.vs.glsl" />
+        <Content Include="Resource\Shaders\cartoon.fs.glsl" />
+        <Content Include="Resource\Shaders\cartoon.vs.glsl" />
         <Content Include="vendor\imgui\LICENSE.txt" />
+        <Content Include="vendor\spdlog\fmt\bundled\fmt.license.rst" />
     </ItemGroup>
     <ItemGroup>
-        <ClInclude Include="Camera.h" />
-        <ClInclude Include="Config.h" />
         <ClInclude Include="Core.h" />
-        <ClInclude Include="InputProcess.h" />
-        <ClInclude Include="Light.h" />
-        <ClInclude Include="Mesh.h" />
-        <ClInclude Include="Model.h" />
-        <ClInclude Include="Renderer\IndexBuffer.h" />
-        <ClInclude Include="Renderer\Renderer.h" />
-        <ClInclude Include="Renderer\Shader.h" />
-        <ClInclude Include="Renderer\VertexArray.h" />
-        <ClInclude Include="Renderer\VertexBuffer.h" />
+        <ClInclude Include="DeferredShading.h" />
+        <ClInclude Include="include\Actor.h" />
+        <ClInclude Include="include\Camera.h" />
+        <ClInclude Include="include\Component.h" />
+        <ClInclude Include="include\GameInstance.h" />
+        <ClInclude Include="include\InputDispatcher.h" />
+        <ClInclude Include="include\Light.h" />
+        <ClInclude Include="include\Material.h" />
+        <ClInclude Include="include\MaterialManager.h" />
+        <ClInclude Include="include\Mesh.h" />
+        <ClInclude Include="include\Model.h" />
+        <ClInclude Include="include\Object.h" />
+        <ClInclude Include="include\Renderer\IndexBuffer.h" />
+        <ClInclude Include="include\Renderer\Renderer.h" />
+        <ClInclude Include="include\Renderer\RenderingController.h" />
+        <ClInclude Include="include\Renderer\Shader.h" />
+        <ClInclude Include="include\Renderer\VertexArray.h" />
+        <ClInclude Include="include\Renderer\VertexBuffer.h" />
+        <ClInclude Include="include\Texture.h" />
+        <ClInclude Include="include\UI\GL_Window.h" />
+        <ClInclude Include="include\UI\UIManager.h" />
+        <ClInclude Include="include\UI\UI_Component.h" />
+        <ClInclude Include="include\UI\UI_Struct.h" />
+        <ClInclude Include="include\World.h" />
         <ClInclude Include="Temp\CubeMapTexture.h" />
         <ClInclude Include="ToolsFuncLib.h" />
         <ClInclude Include="vendor\imgui\imconfig.h" />
@@ -682,6 +1809,110 @@
         <ClInclude Include="vendor\imgui\imstb_rectpack.h" />
         <ClInclude Include="vendor\imgui\imstb_textedit.h" />
         <ClInclude Include="vendor\imgui\imstb_truetype.h" />
+        <ClInclude Include="vendor\spdlog\async.h" />
+        <ClInclude Include="vendor\spdlog\async_logger-inl.h" />
+        <ClInclude Include="vendor\spdlog\async_logger.h" />
+        <ClInclude Include="vendor\spdlog\cfg\argv.h" />
+        <ClInclude Include="vendor\spdlog\cfg\env.h" />
+        <ClInclude Include="vendor\spdlog\cfg\helpers-inl.h" />
+        <ClInclude Include="vendor\spdlog\cfg\helpers.h" />
+        <ClInclude Include="vendor\spdlog\common-inl.h" />
+        <ClInclude Include="vendor\spdlog\common.h" />
+        <ClInclude Include="vendor\spdlog\details\backtracer-inl.h" />
+        <ClInclude Include="vendor\spdlog\details\backtracer.h" />
+        <ClInclude Include="vendor\spdlog\details\circular_q.h" />
+        <ClInclude Include="vendor\spdlog\details\console_globals.h" />
+        <ClInclude Include="vendor\spdlog\details\file_helper-inl.h" />
+        <ClInclude Include="vendor\spdlog\details\file_helper.h" />
+        <ClInclude Include="vendor\spdlog\details\fmt_helper.h" />
+        <ClInclude Include="vendor\spdlog\details\log_msg-inl.h" />
+        <ClInclude Include="vendor\spdlog\details\log_msg.h" />
+        <ClInclude Include="vendor\spdlog\details\log_msg_buffer-inl.h" />
+        <ClInclude Include="vendor\spdlog\details\log_msg_buffer.h" />
+        <ClInclude Include="vendor\spdlog\details\mpmc_blocking_q.h" />
+        <ClInclude Include="vendor\spdlog\details\null_mutex.h" />
+        <ClInclude Include="vendor\spdlog\details\os-inl.h" />
+        <ClInclude Include="vendor\spdlog\details\os.h" />
+        <ClInclude Include="vendor\spdlog\details\periodic_worker-inl.h" />
+        <ClInclude Include="vendor\spdlog\details\periodic_worker.h" />
+        <ClInclude Include="vendor\spdlog\details\registry-inl.h" />
+        <ClInclude Include="vendor\spdlog\details\registry.h" />
+        <ClInclude Include="vendor\spdlog\details\synchronous_factory.h" />
+        <ClInclude Include="vendor\spdlog\details\tcp_client-windows.h" />
+        <ClInclude Include="vendor\spdlog\details\tcp_client.h" />
+        <ClInclude Include="vendor\spdlog\details\thread_pool-inl.h" />
+        <ClInclude Include="vendor\spdlog\details\thread_pool.h" />
+        <ClInclude Include="vendor\spdlog\details\udp_client-windows.h" />
+        <ClInclude Include="vendor\spdlog\details\udp_client.h" />
+        <ClInclude Include="vendor\spdlog\details\windows_include.h" />
+        <ClInclude Include="vendor\spdlog\fmt\bin_to_hex.h" />
+        <ClInclude Include="vendor\spdlog\fmt\bundled\args.h" />
+        <ClInclude Include="vendor\spdlog\fmt\bundled\base.h" />
+        <ClInclude Include="vendor\spdlog\fmt\bundled\chrono.h" />
+        <ClInclude Include="vendor\spdlog\fmt\bundled\color.h" />
+        <ClInclude Include="vendor\spdlog\fmt\bundled\compile.h" />
+        <ClInclude Include="vendor\spdlog\fmt\bundled\core.h" />
+        <ClInclude Include="vendor\spdlog\fmt\bundled\format-inl.h" />
+        <ClInclude Include="vendor\spdlog\fmt\bundled\format.h" />
+        <ClInclude Include="vendor\spdlog\fmt\bundled\os.h" />
+        <ClInclude Include="vendor\spdlog\fmt\bundled\ostream.h" />
+        <ClInclude Include="vendor\spdlog\fmt\bundled\printf.h" />
+        <ClInclude Include="vendor\spdlog\fmt\bundled\ranges.h" />
+        <ClInclude Include="vendor\spdlog\fmt\bundled\std.h" />
+        <ClInclude Include="vendor\spdlog\fmt\bundled\xchar.h" />
+        <ClInclude Include="vendor\spdlog\fmt\chrono.h" />
+        <ClInclude Include="vendor\spdlog\fmt\compile.h" />
+        <ClInclude Include="vendor\spdlog\fmt\fmt.h" />
+        <ClInclude Include="vendor\spdlog\fmt\ostr.h" />
+        <ClInclude Include="vendor\spdlog\fmt\ranges.h" />
+        <ClInclude Include="vendor\spdlog\fmt\std.h" />
+        <ClInclude Include="vendor\spdlog\fmt\xchar.h" />
+        <ClInclude Include="vendor\spdlog\formatter.h" />
+        <ClInclude Include="vendor\spdlog\fwd.h" />
+        <ClInclude Include="vendor\spdlog\logger-inl.h" />
+        <ClInclude Include="vendor\spdlog\logger.h" />
+        <ClInclude Include="vendor\spdlog\mdc.h" />
+        <ClInclude Include="vendor\spdlog\pattern_formatter-inl.h" />
+        <ClInclude Include="vendor\spdlog\pattern_formatter.h" />
+        <ClInclude Include="vendor\spdlog\sinks\android_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\ansicolor_sink-inl.h" />
+        <ClInclude Include="vendor\spdlog\sinks\ansicolor_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\base_sink-inl.h" />
+        <ClInclude Include="vendor\spdlog\sinks\base_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\basic_file_sink-inl.h" />
+        <ClInclude Include="vendor\spdlog\sinks\basic_file_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\callback_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\daily_file_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\dist_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\dup_filter_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\hourly_file_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\kafka_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\mongo_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\msvc_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\null_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\ostream_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\qt_sinks.h" />
+        <ClInclude Include="vendor\spdlog\sinks\ringbuffer_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\rotating_file_sink-inl.h" />
+        <ClInclude Include="vendor\spdlog\sinks\rotating_file_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\sink-inl.h" />
+        <ClInclude Include="vendor\spdlog\sinks\sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\stdout_color_sinks-inl.h" />
+        <ClInclude Include="vendor\spdlog\sinks\stdout_color_sinks.h" />
+        <ClInclude Include="vendor\spdlog\sinks\stdout_sinks-inl.h" />
+        <ClInclude Include="vendor\spdlog\sinks\stdout_sinks.h" />
+        <ClInclude Include="vendor\spdlog\sinks\syslog_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\systemd_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\tcp_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\udp_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\wincolor_sink-inl.h" />
+        <ClInclude Include="vendor\spdlog\sinks\wincolor_sink.h" />
+        <ClInclude Include="vendor\spdlog\sinks\win_eventlog_sink.h" />
+        <ClInclude Include="vendor\spdlog\spdlog-inl.h" />
+        <ClInclude Include="vendor\spdlog\spdlog.h" />
+        <ClInclude Include="vendor\spdlog\stopwatch.h" />
+        <ClInclude Include="vendor\spdlog\tweakme.h" />
+        <ClInclude Include="vendor\spdlog\version.h" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resource\" />
