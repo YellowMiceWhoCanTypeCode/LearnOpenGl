@@ -6,6 +6,11 @@
 
 #include "../include/Renderer/RenderingController.h"
 
+Light::Light(const LearnOpengl::Transform& transform)
+    : position_(transform.position), direction_(0.0f, 0.0f, -1.0f), ambient_(vec3_one), diffuse_(vec3_one), specular_(vec3_one)
+{
+}
+
 Light::Light(
     glm::vec3 position,
     glm::vec3 direction,
@@ -38,6 +43,11 @@ void Light::AfterSpawn()
 DirLight::DirLight()
 {
     light_type_ = Light_Type::Dir_Light;
+}
+
+DirLight::DirLight(const LearnOpengl::Transform& transform)
+    : Light(transform)
+{
 }
 
 DirLight::DirLight(glm::vec3 position, glm::vec3 direction, glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular): Light(position, direction, ambient, diffuse, specular)

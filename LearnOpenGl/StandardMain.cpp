@@ -50,7 +50,7 @@ void SceneExample()
     world->player_ = player;
 
     //生成光照
-    //auto* dir_light = world->SpawnObject<DirLight>();
+    auto* dir_light = world->SpawnObject<DirLight>();
 }
 
 void UIExample()

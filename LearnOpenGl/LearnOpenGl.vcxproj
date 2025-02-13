@@ -1752,23 +1752,25 @@
         <Content Include="Resource\Model\nanosuit\nanosuit.obj" />
         <Content Include="Resource\Model\nanosuit\nanosuit.rar" />
         <Content Include="Resource\Model\shenli\shenli.fbx" />
-        <Content Include="Resource\Shaders\1.model_loading.vs.glsl" />
-        <Content Include="Resource\Shaders\Core\func_lib.glsl" />
-        <Content Include="Resource\Shaders\Core\struct_lib.glsl" />
-        <Content Include="Resource\Shaders\deferred_shading.fs.glsl" />
-        <Content Include="Resource\Shaders\deferred_shading.vs.glsl" />
-        <Content Include="Resource\Shaders\light_cal_example.vs.glsl" />
-        <Content Include="Resource\Shaders\light_cal_example.fs.glsl" />
-        <Content Include="Resource\Shaders\floor.fs.glsl" />
-        <Content Include="Resource\Shaders\floor.vs.glsl" />
-        <Content Include="Resource\Shaders\main.fs.glsl" />
-        <Content Include="Resource\Shaders\main.vs.glsl" />
-        <Content Include="Resource\Shaders\pbr.fs.glsl" />
-        <Content Include="Resource\Shaders\pbr.vs.glsl" />
-        <Content Include="Resource\Shaders\shadow_depth.fs.glsl" />
-        <Content Include="Resource\Shaders\shadow_depth.vs.glsl" />
-        <Content Include="Resource\Shaders\cartoon.fs.glsl" />
-        <Content Include="Resource\Shaders\cartoon.vs.glsl" />
+        <Content Include="Shaders\1.model_loading.vs.glsl" />
+        <Content Include="Shaders\BLinn-Phong.fs.glsl" />
+        <Content Include="Shaders\BLinn-Phong.vs.glsl" />
+        <Content Include="Shaders\cartoon.fs.glsl" />
+        <Content Include="Shaders\cartoon.vs.glsl" />
+        <Content Include="Shaders\Core\func_lib.glsl" />
+        <Content Include="Shaders\Core\struct_lib.glsl" />
+        <Content Include="Shaders\deferred_shading.fs.glsl" />
+        <Content Include="Shaders\deferred_shading.vs.glsl" />
+        <Content Include="Shaders\floor.fs.glsl" />
+        <Content Include="Shaders\floor.vs.glsl" />
+        <Content Include="Shaders\light_cal_example.fs.glsl" />
+        <Content Include="Shaders\light_cal_example.vs.glsl" />
+        <Content Include="Shaders\main.fs.glsl" />
+        <Content Include="Shaders\main.vs.glsl" />
+        <Content Include="Shaders\pbr.fs.glsl" />
+        <Content Include="Shaders\pbr.vs.glsl" />
+        <Content Include="Shaders\shadow_depth.fs.glsl" />
+        <Content Include="Shaders\shadow_depth.vs.glsl" />
         <Content Include="vendor\imgui\LICENSE.txt" />
         <Content Include="vendor\spdlog\fmt\bundled\fmt.license.rst" />
     </ItemGroup>
@@ -1918,7 +1920,7 @@
         <Folder Include="Resource\" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Resource\Shaders\1.model_loading.fs.glsl" />
+      <Compile Include="Shaders\1.model_loading.fs.glsl" />
     </ItemGroup>
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
     <ImportGroup Label="ExtensionTargets">

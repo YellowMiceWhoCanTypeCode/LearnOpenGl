@@ -40,6 +40,6 @@ private:
     //depth_map_fbo and depth_map
     std::vector<std::pair<unsigned int, unsigned int>> depth_map_pairs_;
 
-    std::string shadow_depth_shader_path_ = "Resource/Shaders/shadow_depth";
-    std::string main_shader_path_ = "Resource/Shaders/main";
+    std::string shadow_depth_shader_path_ = "Shaders/shadow_depth";
+    std::string main_shader_path_ = "Shaders/main";
 };

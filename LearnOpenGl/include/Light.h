@@ -3,7 +3,7 @@
 #include <gtc/type_ptr.inl>
 
 #include "Object.h"
-#include "../vendor/imgui/imgui.h"
+#include "imgui/imgui.h"
 
 enum class Light_Type
 {
@@ -24,9 +24,11 @@ public:
     {
     }
 
+    Light(const LearnOpengl::Transform& transform);
+
     Light(glm::vec3 position, glm::vec3 direction, glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular);
 
-    virtual ~Light();
+    virtual ~Light() override;
 
     virtual void ImGui_ItemBind();
 
@@ -50,9 +52,11 @@ class DirLight : public Light
 public:
     DirLight();
 
+    DirLight(const LearnOpengl::Transform& transform);
+
     DirLight(glm::vec3 position, glm::vec3 direction, glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular);
 
-    virtual ~DirLight();
+    virtual ~DirLight() override;
 
     void ImGui_ItemBind() override;
 
@@ -88,7 +92,7 @@ public:
     virtual ~PointLight();
 
     void ImGui_ItemBind() override;
-    
+
     gl_mat4 GetLightSpaceMatrix(float far_plane) override;
 
 public:
